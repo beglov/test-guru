@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_and_belongs_to_many :tests
+  has_many :tests_users
+  has_many :tests, through: :tests_users
 
   def user_tests(level = 0)
     tests.where(level: level)
