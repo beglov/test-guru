@@ -1,7 +1,11 @@
+<h1><%= @question.test.title %> Question</h1>
+
 <p>
   <strong>Body:</strong>
   <%= @question.body %>
 </p>
+
+<%= render 'answers/index', answers: @question.answers, question: @question %>
 
 <p>
   <%= link_to 'Edit', edit_question_path(@question) %> |
