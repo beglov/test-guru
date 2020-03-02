@@ -1,8 +1,8 @@
 module QuestionsHelper
   def question_form_title(question)
-    if action_name == 'new'
+    if question.new_record?
       "Create New #{question.test.title} Question"
-    elsif action_name == 'edit'
+    else
       "Edit #{question.test.title} Question"
     end
   end
