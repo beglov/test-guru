@@ -1,16 +1,7 @@
-<h1>Questions</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>Body</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <%= render questions %>
-  </tbody>
-</table>
+<h2>Questions</h2>
 
 <p><%= link_to 'New Question', new_test_question_path(test) %></p>
+
+<ol>
+  <%= render questions %>
+</ol>
