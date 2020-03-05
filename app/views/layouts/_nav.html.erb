@@ -1,0 +1,16 @@
+<div class="header">
+  <div class="header-left"><h1><%= link_to 'Test Guru', root_path %></h1></div>
+
+  <div class="header-right">
+    <p class="nav user">
+      <% if logged_in? %>
+        Welcome, <b><%= current_user.email %></b> Guru.
+        <%= link_to 'Logout', logout_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Registration', signup_path %> |
+        <%= link_to 'Log In', login_path %>
+      <% end %>
+    </p>
+  </div>
+</div>
+
