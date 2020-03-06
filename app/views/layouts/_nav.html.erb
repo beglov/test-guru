@@ -3,12 +3,12 @@
 
   <div class="header-right">
     <p class="nav user">
-      <% if logged_in? %>
-        Welcome, <b><%= current_user.email %></b> Guru.
-        <%= link_to 'Logout', logout_path, method: :delete %>
+      <% if user_signed_in? %>
+        Welcome, <b><%= current_user.email %></b> Guru. |
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       <% else %>
-        <%= link_to 'Registration', signup_path %> |
-        <%= link_to 'Log In', login_path %>
+        <%= link_to 'Registration', new_user_registration_path %> |
+        <%= link_to 'Log In', new_user_session_path %>
       <% end %>
     </p>
   </div>
