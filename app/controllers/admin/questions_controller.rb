@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   before_action :find_test, only: %i[index new create]
   before_action :find_question, only: %i[show edit update destroy]
 
@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to @question, notice: 'Question was successfully created.'
+      redirect_to admin_question_path(@question), notice: 'Question was successfully created.'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   def update
     if @question.update(question_params)
-      redirect_to @question, notice: 'Question was successfully updated.'
+      redirect_to admin_question_path(@question), notice: 'Question was successfully updated.'
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   def destroy
     @question.destroy
-    redirect_to test_path(@question.test), notice: 'Question was successfully destroyed.'
+    redirect_to admin_test_path(@question.test), notice: 'Question was successfully destroyed.'
   end
 
   private
