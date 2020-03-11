@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])
   end
 
   def after_sign_in_path_for(resource)
     flash[:notice] = "Hello, #{current_user.first_name}!"
-    if resource.is_a?(Admin)
+    if resource.admin?
       admin_tests_path
     else
       super
