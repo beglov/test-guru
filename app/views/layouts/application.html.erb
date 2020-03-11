@@ -11,9 +11,8 @@
 
   <body>
     <%= render 'layouts/nav' %>
-
-    <p id="notice"><%= notice %></p>
+    <%= render 'shared/flash' %>
     <%= yield %>
-    <%= render 'shared/footer' %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
