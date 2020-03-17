@@ -1,10 +1,10 @@
 <tr>
-  <td><%= test.category.title %></td>
+  <td scope="row"><%= test.category.title %></td>
   <td><%= test.title %></td>
   <td><%= test.level %></td>
   <td><%= test.author.email %></td>
   <td><%= test.questions.size %></td>
-  <td><%= link_to t('.show'), admin_test_path(test) %></td>
-  <td><%= link_to t('.edit'), edit_admin_test_path(test) %></td>
-  <td><%= link_to t('.delete'), admin_test_path(test), method: :delete, data: {confirm: t('.confirm')} %></td>
+  <td><%= link_to t('.show'), admin_test_path(test), class: 'btn btn-primary' %></td>
+  <td><%= link_to t('.edit'), edit_admin_test_path(test), class: 'btn btn-primary' %></td>
+  <td><%= link_to t('.delete'), admin_test_path(test), method: :delete, data: {confirm: t('.confirm')}, class: 'btn btn-danger' %></td>
 </tr>
