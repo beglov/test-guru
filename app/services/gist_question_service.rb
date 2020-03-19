@@ -5,10 +5,12 @@ class GistQuestionService
     @client = client || Octokit::Client.new(access_token: GitHubClient::ACCESS_TOKEN)
   end
 
-  def call(user)
-    gist = @client.create_gist(gist_params)
-    user.gists.create(question: @question, github_id: gist.id)
-    gist
+  def call
+    @client.create_gist(gist_params)
+  end
+
+  def success?
+    [200, 201].include?(@client.last_response.status)
   end
 
   private
