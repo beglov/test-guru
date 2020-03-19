@@ -27,6 +27,9 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
 
+  gist_question_service:
+    description: "Вопросы по тесту %{title} из TestGuru"
+
   devise:
     shared:
       links:
@@ -59,7 +62,7 @@ ru:
       header: "Тест %{title} завершен!"
       back_tests: "Назад к тестам"
     gist:
-      success: "Gist успешно сохранен!"
+      success: "<a href='%{url}' target='_blank'>Gist</a> успешно сохранен!"
       failure: "Во время сохранения gist произошла ошибка"
 
   admin:
@@ -104,6 +107,10 @@ ru:
         success: "Тест успешно обновлен."
       destroy:
         success: "Тест успешно удален."
+    gists:
+      index:
+        question: "Вопрос"
+        user: "Пользователь"
 
   tests_mailer:
     completed_test:
