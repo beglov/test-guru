@@ -25,6 +25,9 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
 
+  gist_question_service:
+    description: "A question about %{title} from TestGuru"
+
   devise:
     shared:
       links:
@@ -56,6 +59,9 @@ en:
     result:
       header: "The %{title} Test was Completed!"
       back_tests: 'Back to tests'
+    gist:
+      success: "<a href='%{url}' target='_blank'>Gist</a> was successfully created!"
+      failure: "An error occurred while saving gist"
 
   admin:
     nav:
@@ -99,6 +105,10 @@ en:
         success: "Test was successfully updated."
       destroy:
         success: "Test was successfully destroyed."
+    gists:
+      index:
+        question: "Question"
+        user: "User"
 
   tests_mailer:
     completed_test:
