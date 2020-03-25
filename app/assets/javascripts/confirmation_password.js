@@ -2,7 +2,7 @@ document.addEventListener('turbolinks:load', function () {
     let confirmationPasswordInput = document.getElementById('user_password_confirmation');
 
     if (confirmationPasswordInput) {
-        confirmationPasswordInput.addEventListener('input', confirmUserPassword)
+        confirmationPasswordInput.addEventListener('input', confirmUserPassword);
 
         let passwordInput = document.getElementById('user_password');
         if (passwordInput) {
@@ -16,7 +16,7 @@ document.addEventListener('turbolinks:load', function () {
 function confirmUserPassword() {
     let passwordInput = document.getElementById('user_password');
 
-    if (this.value.length < 1 || passwordInput.value.length < 1) {
+    if (!this.value || !passwordInput.value) {
         this.parentNode.querySelector('.octicon-check').classList.add('hide');
         this.parentNode.querySelector('.octicon-alert').classList.add('hide')
     } else if (this.value === passwordInput.value) {
