@@ -74,6 +74,8 @@ ru:
         header: "Вопросы"
         new_question: "Новый вопрос"
     tests:
+      form_inline:
+        submit: "ОК"
       edit:
         show: "Показать"
         back: "Назад"
