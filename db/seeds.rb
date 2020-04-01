@@ -6,14 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.create!(email: 'test1@test.ru')
-user2 = User.create!(email: 'test2@test.ru')
+admin = Admin.create!(email: 'admin@admin.ru', password: '1q2w3e4r', first_name: 'FirstName', last_name: 'LastName')
 categories = Category.create!([{title: 'Frontend'}, {title: 'Backend'}, {title: 'DevOps'}])
-tests = user1.tests.create!([
-  {title: 'HTML', level: 0, category_id: categories[0].id, author_id: user2.id},
-  {title: 'Go', level: 1, category_id: categories[1].id, author_id: user2.id},
-  {title: 'Ruby', level: 1, category_id: categories[1].id, author_id: user2.id},
-  {title: 'Docker', level: 2, category_id: categories[2].id, author_id: user2.id}
+tests = admin.tests.create!([
+  {title: 'HTML', level: 0, category_id: categories[0].id, author_id: admin.id},
+  {title: 'Go', level: 1, category_id: categories[1].id, author_id: admin.id},
+  {title: 'Ruby', level: 1, category_id: categories[1].id, author_id: admin.id},
+  {title: 'Docker', level: 2, category_id: categories[2].id, author_id: admin.id}
 ])
 questions = Question.create!([
   {body: 'Тег ссылки', test_id: tests[0].id},
