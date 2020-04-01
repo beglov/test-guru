@@ -1,5 +1,9 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: <%= progress_bar_width(@test_passage) %>%;" aria-valuenow="<%= progress_bar_width(@test_passage) %>" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
 <p><small>Вопрос <%= @test_passage.current_question_number %> из <%= @test_passage.test.questions.size %></small></p>
 
 <div class="card border-primary">

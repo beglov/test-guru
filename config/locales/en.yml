@@ -72,6 +72,8 @@ en:
         header: "Questions"
         new_question: "New Question"
     tests:
+      form_inline:
+        submit: "OK"
       edit:
         show: "Show"
         back: "Back"
