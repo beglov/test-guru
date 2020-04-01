@@ -1,1 +1,1 @@
-Dotenv.require_keys('GITHUB_TOKEN')
+# Dotenv.require_keys('GITHUB_TOKEN')
