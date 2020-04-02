@@ -18,6 +18,8 @@ en:
     nav:
       welcome_html: "Welcome, <b>%{email}</b> Guru."
       logout: "Logout"
+      feedback: "Feedback"
+      control_panel: "Control Panel"
 
   shared:
     errors:
@@ -43,6 +45,13 @@ en:
       new:
         header: "Log In"
         login: "log in"
+
+  feedback:
+    message:
+      submit: "Send"
+      header: "Enter your message:"
+    send_message:
+      success: "Message was successfully sent."
 
   tests:
     test:

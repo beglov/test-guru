@@ -1,0 +1,12 @@
+<h1><%= t('.header') %></h1>
+
+<div class="card border-primary">
+  <div class="card-body">
+    <%= form_with(url: feedback_send_message_path, local: true) do |form| %>
+      <div class="form-group">
+        <%= text_area_tag(:message, '', size: "80x6") %>
+        <p><%= form.submit t('.submit'), class: 'btn btn-primary mt-3' %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
