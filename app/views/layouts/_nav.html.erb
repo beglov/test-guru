@@ -6,11 +6,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <%= link_to t('.feedback'), feedback_message_path, class: 'nav-item nav-link' %>
+      <% if user_signed_in? %>
+        <%= link_to t('.feedback'), feedback_message_path, class: 'nav-item nav-link' %>
 
-      <% if current_user&.admin? %>
-        <%= link_to t('.control_panel'), admin_tests_path, class: 'nav-item nav-link' %>
-        <%= link_to 'Gists', admin_gists_path, class: 'nav-item nav-link' %>
+        <% if current_user&.admin? %>
+          <%= link_to t('.control_panel'), admin_tests_path, class: 'nav-item nav-link' %>
+          <%= link_to 'Gists', admin_gists_path, class: 'nav-item nav-link' %>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -20,8 +22,8 @@
       <%= t('.welcome_html', email: current_user.email) %> |
       <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to t('.sign_in'), new_session_path(resource_name) %> |
-      <%= link_to t('.sign_up'), new_registration_path(resource_name) %>
+      <%= link_to t('devise.shared.links.sign_in'), new_session_path(resource_name) %> |
+      <%= link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name) %>
     <% end %>
   </span>
 </nav>
