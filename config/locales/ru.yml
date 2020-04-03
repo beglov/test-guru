@@ -119,6 +119,8 @@ ru:
       destroy:
         success: "Тест успешно удален."
     gists:
+      gist:
+        not_found: "Связанный вопрос не найден!"
       index:
         question: "Вопрос"
         user: "Пользователь"

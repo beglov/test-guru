@@ -117,6 +117,8 @@ en:
       destroy:
         success: "Test was successfully destroyed."
     gists:
+      gist:
+        not_found: "Question not found!"
       index:
         question: "Question"
         user: "User"
