@@ -18,6 +18,8 @@ ru:
     nav:
       welcome_html: "Добро пожаловать, <b>%{email}</b> Гуру."
       logout: "Выйти"
+      feedback: "Обратная связь"
+      control_panel: "Панель управления"
 
   shared:
     errors:
@@ -45,6 +47,13 @@ ru:
       new:
         header: "Войдите в систему"
         login: "Войти"
+
+  feedback:
+    message:
+      submit: "Отправить"
+      header: "Введите ваше сообщение:"
+    send_message:
+      success: "Сообщение успешно отправлено!"
 
   tests:
     test:
@@ -110,6 +119,8 @@ ru:
       destroy:
         success: "Тест успешно удален."
     gists:
+      gist:
+        not_found: "Связанный вопрос не найден!"
       index:
         question: "Вопрос"
         user: "Пользователь"

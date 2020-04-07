@@ -1,4 +1,4 @@
-require 'active_record/connection_adapters/sqlite3_adapter'
+# require 'active_record/connection_adapters/sqlite3_adapter'
 
 #
 # Monkey-patch for disable foreign keys during `alter_table` for sqlite3 adapter for Rails 5
