@@ -1,7 +1,7 @@
 module TestPassagesHelper
   def colored_percent(test_passage)
     color = test_passage.success? ? 'green' : 'red'
-    "<span style='color: #{color}'>#{format('%d', test_passage.success_percent)}</span>".html_safe
+    "<span style='color: #{color}'>#{number_to_percentage(test_passage.success_percent, precision: 0)}</span>".html_safe
   end
 
   def test_complete_message(test_passage)

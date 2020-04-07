@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load', function () {
+document.addEventListener('turbolinks:load', () => {
     let controls = document.querySelectorAll('.form-inline-link');
 
     if (controls.length) {
