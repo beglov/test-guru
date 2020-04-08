@@ -5,40 +5,42 @@ class TestsControllerTest < ActionDispatch::IntegrationTest
     @test = tests(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get tests_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_test_url
     assert_response :success
   end
 
-  test "should create test" do
+  test 'should create test' do
     assert_difference('Test.count') do
-      post tests_url, params: { test: { author_id: @test.author_id, category_id: @test.category_id, level: @test.level, title: @test.title } }
+      post tests_url, params: {test: {author_id: @test.author_id, category_id: @test.category_id, level: @test.level,
+                                      title: @test.title}}
     end
 
     assert_redirected_to test_url(Test.last)
   end
 
-  test "should show test" do
+  test 'should show test' do
     get test_url(@test)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_test_url(@test)
     assert_response :success
   end
 
-  test "should update test" do
-    patch test_url(@test), params: { test: { author_id: @test.author_id, category_id: @test.category_id, level: @test.level, title: @test.title } }
+  test 'should update test' do
+    patch test_url(@test), params: {test: {author_id: @test.author_id, category_id: @test.category_id,
+                                           level: @test.level, title: @test.title}}
     assert_redirected_to test_url(@test)
   end
 
-  test "should destroy test" do
+  test 'should destroy test' do
     assert_difference('Test.count', -1) do
       delete test_url(@test)
     end

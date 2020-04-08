@@ -7,16 +7,15 @@
 module ActiveRecord
   module ConnectionAdapters
     class SQLite3Adapter < AbstractAdapter
-
       # REFERENTIAL INTEGRITY ====================================
 
       def disable_referential_integrity # :nodoc:
-        old_foreign_keys = query_value("PRAGMA foreign_keys")
-        old_defer_foreign_keys = query_value("PRAGMA defer_foreign_keys")
+        old_foreign_keys = query_value('PRAGMA foreign_keys')
+        old_defer_foreign_keys = query_value('PRAGMA defer_foreign_keys')
 
         begin
-          execute("PRAGMA defer_foreign_keys = ON")
-          execute("PRAGMA foreign_keys = OFF")
+          execute('PRAGMA defer_foreign_keys = ON')
+          execute('PRAGMA foreign_keys = OFF')
           yield
         ensure
           execute("PRAGMA defer_foreign_keys = #{old_defer_foreign_keys}")
@@ -27,7 +26,7 @@ module ActiveRecord
       def insert_fixtures_set(fixture_set, tables_to_delete = [])
         disable_referential_integrity do
           transaction(requires_new: true) do
-            tables_to_delete.each { |table| delete "DELETE FROM #{quote_table_name(table)}", "Fixture Delete" }
+            tables_to_delete.each { |table| delete "DELETE FROM #{quote_table_name(table)}", 'Fixture Delete' }
 
             fixture_set.each do |table_name, rows|
               rows.each { |row| insert_fixture(row, table_name) }

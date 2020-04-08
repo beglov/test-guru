@@ -5,40 +5,42 @@ class AnswersControllerTest < ActionDispatch::IntegrationTest
     @answer = answers(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get answers_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_answer_url
     assert_response :success
   end
 
-  test "should create answer" do
+  test 'should create answer' do
     assert_difference('Answer.count') do
-      post answers_url, params: { answer: { body: @answer.body, correct: @answer.correct, question_id: @answer.question_id } }
+      post answers_url, params: {answer: {body: @answer.body, correct: @answer.correct,
+                                          question_id: @answer.question_id}}
     end
 
     assert_redirected_to answer_url(Answer.last)
   end
 
-  test "should show answer" do
+  test 'should show answer' do
     get answer_url(@answer)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_answer_url(@answer)
     assert_response :success
   end
 
-  test "should update answer" do
-    patch answer_url(@answer), params: { answer: { body: @answer.body, correct: @answer.correct, question_id: @answer.question_id } }
+  test 'should update answer' do
+    patch answer_url(@answer), params: {answer: {body: @answer.body, correct: @answer.correct,
+                                                 question_id: @answer.question_id}}
     assert_redirected_to answer_url(@answer)
   end
 
-  test "should destroy answer" do
+  test 'should destroy answer' do
     assert_difference('Answer.count', -1) do
       delete answer_url(@answer)
     end

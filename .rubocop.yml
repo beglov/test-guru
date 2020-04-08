@@ -1,9 +1,17 @@
 require: rubocop-rails
 
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/EmptyMethod:
-  Enabled: false
+  EnforcedStyle: expanded
 Style/Documentation:
   Enabled: false
 Style/AsciiComments:
@@ -16,3 +24,5 @@ Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
+Bundler/OrderedGems:
+  Enabled: false
