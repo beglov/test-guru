@@ -7,8 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 admin = Admin.create!(email: 'beglov.sergey@yandex.ru', password: '1q2w3e4r', first_name: 'Sergey', last_name: 'Beglov')
+user = User.create!(email: 'test1@test.ru', password: '1q2w3e4r')
+user2 = User.create!(email: 'test2@test.ru', password: '1q2w3e4r')
+Badge.create!([
+                  {title: 'CATEGORY!', rule: Badge::Rule::CATEGORY},
+                  {title: 'Первый нах!', rule: Badge::Rule::FIRST_ATTEMPT},
+                  {title: 'LEVEL!', rule: Badge::Rule::LEVEL},
+              ])
 categories = Category.create!([{title: 'Frontend'}, {title: 'Backend'}, {title: 'DevOps'}])
-tests = admin.tests.create!([
+tests = user2.tests.create!([
   {title: 'HTML', level: 0, category_id: categories[0].id, author_id: admin.id},
   {title: 'Go', level: 1, category_id: categories[1].id, author_id: admin.id},
   {title: 'Ruby', level: 1, category_id: categories[1].id, author_id: admin.id},

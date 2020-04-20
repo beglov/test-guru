@@ -2,6 +2,7 @@ en:
   activerecord:
     models:
       test: 'Test'
+      badge: 'Badge'
 
     attributes:
       test:
@@ -9,6 +10,10 @@ en:
         author: 'Author'
         title: 'Title'
         level: 'Level'
+      badge:
+        title: "Title"
+        image_path: "Image path"
+        rule: "Rule"
 
     errors:
       messages:

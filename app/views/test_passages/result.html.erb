@@ -1,8 +1,20 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
-<h2>
-  Вы ответили правильно на <%= colored_percent(@test_passage) %> тестов.
-  <%= test_complete_message(@test_passage) %>
-</h2>
+<div class="card">
+  <div class="card-body">
+    <p class="card-text"><%= t('.message_html', percent: colored_percent(@test_passage)) %></p>
+    <p class="card-text"><%= test_complete_message(@test_passage) %></p>
+
+    <% if @test_passage.badges.present? %>
+      <p class="card-text"><%= t('.badges') %></p>
+
+      <p class="card-text">
+        <% @test_passage.badges.each do |badge| %>
+          <span class="badge badge-info"><%= badge.title %></span>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+</div>
 
 <p><%= link_to t('.back_tests'), tests_path %></p>

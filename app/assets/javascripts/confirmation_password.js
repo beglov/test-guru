@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load', function () {
+document.addEventListener('turbolinks:load', () => {
     let confirmationPasswordInput = document.getElementById('user_password_confirmation');
 
     if (confirmationPasswordInput) {
