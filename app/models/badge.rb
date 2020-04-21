@@ -1,5 +1,4 @@
 class Badge < ApplicationRecord
-  belongs_to :category, optional: true
   has_many :test_passage_badges, dependent: :delete_all
   has_many :test_passages, through: :test_passage_badges
   has_many :tests, through: :test_passages
@@ -7,8 +6,7 @@ class Badge < ApplicationRecord
 
   validates :title, presence: true
   validates :rule, presence: true
-  validates :category_id, presence: true, if: :category_rule?
-  validates :level, presence: true, if: :level_rule?
+  validates :value, presence: true, unless: :first_attempt_rule?
 
   module Rule
     CATEGORY = 1

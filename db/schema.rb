@@ -28,11 +28,9 @@ ActiveRecord::Schema.define(version: 2020_04_16_183655) do
     t.string "title"
     t.string "image_path"
     t.integer "rule"
-    t.bigint "category_id"
-    t.integer "level"
+    t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_badges_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -119,7 +117,6 @@ ActiveRecord::Schema.define(version: 2020_04_16_183655) do
     t.index ["type"], name: "index_users_on_type"
   end
 
-  add_foreign_key "badges", "categories"
   add_foreign_key "test_passage_badges", "badges"
   add_foreign_key "test_passage_badges", "test_passages"
 end

@@ -14,8 +14,7 @@ ru:
         title: "Название"
         image_path: "Путь к картинке"
         rule: "Правило"
-        category_id: "Категория"
-        level: "Уровень"
+        value: "Значение"
 
     errors:
       messages:

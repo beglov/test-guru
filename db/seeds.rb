@@ -13,14 +13,14 @@ user2 = User.create!(email: 'test2@test.ru', password: '1q2w3e4r')
 categories = Category.create!([{title: 'Frontend'}, {title: 'Backend'}, {title: 'DevOps'}])
 
 Badge.create!([
-                  {title: "CATEGORY #{categories[0].title}!", rule: Badge::Rule::CATEGORY, category_id: categories[0].id},
-                  {title: "CATEGORY #{categories[1].title}!", rule: Badge::Rule::CATEGORY, category_id: categories[1].id},
-                  {title: "CATEGORY #{categories[2].title}!", rule: Badge::Rule::CATEGORY, category_id: categories[2].id},
-                  {title: 'Первый нах!', rule: Badge::Rule::FIRST_ATTEMPT},
-                  {title: 'LEVEL 0!', rule: Badge::Rule::LEVEL, level: 0},
-                  {title: 'LEVEL 1!', rule: Badge::Rule::LEVEL, level: 1},
-                  {title: 'LEVEL 2!', rule: Badge::Rule::LEVEL, level: 2},
-                  {title: 'LEVEL 3!', rule: Badge::Rule::LEVEL, level: 3},
+  {title: "CATEGORY #{categories[0].title}!", rule: Badge::Rule::CATEGORY, value: categories[0].id},
+  {title: "CATEGORY #{categories[1].title}!", rule: Badge::Rule::CATEGORY, value: categories[1].id},
+  {title: "CATEGORY #{categories[2].title}!", rule: Badge::Rule::CATEGORY, value: categories[2].id},
+  {title: 'Первый нах!', rule: Badge::Rule::FIRST_ATTEMPT},
+  {title: 'LEVEL 0!', rule: Badge::Rule::LEVEL, value: 0},
+  {title: 'LEVEL 1!', rule: Badge::Rule::LEVEL, value: 1},
+  {title: 'LEVEL 2!', rule: Badge::Rule::LEVEL, value: 2},
+  {title: 'LEVEL 3!', rule: Badge::Rule::LEVEL, value: 3}
 ])
 
 tests = user2.tests.create!([

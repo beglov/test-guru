@@ -15,19 +15,10 @@
       <%= @badge.rule_label %>
     </p>
 
-    <% if @badge.category_rule? %>
-      <p class="card-text">
-        <strong><%= t('activerecord.attributes.badge.category_id') %>:</strong>
-        <%= @badge.category.try(:title) %>
-      </p>
-    <% end %>
-
-    <% if @badge.level_rule? %>
-      <p class="card-text">
-        <strong><%= t('activerecord.attributes.badge.level') %>:</strong>
-        <%= @badge.level %>
-      </p>
-    <% end %>
+    <p class="card-text">
+      <strong><%= t('activerecord.attributes.badge.value') %>:</strong>
+      <%= @badge.value %>
+    </p>
   </div>
 </div>
 

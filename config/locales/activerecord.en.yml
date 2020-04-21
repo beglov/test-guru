@@ -14,8 +14,7 @@ en:
         title: "Title"
         image_path: "Image path"
         rule: "Rule"
-        category_id: "Category"
-        level: "Level"
+        value: "Value"
 
     errors:
       messages:
