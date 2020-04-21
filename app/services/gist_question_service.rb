@@ -20,9 +20,9 @@ class GistQuestionService
       description: I18n.t('gist_question_service.description', title: @test.title),
       files: {
         'test-guru-question.txt' => {
-          content: gist_content
-        }
-      }
+          content: gist_content,
+        },
+      },
     }
   end
 

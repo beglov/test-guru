@@ -18,7 +18,7 @@ class TestsControllerTest < ActionDispatch::IntegrationTest
   test 'should create test' do
     assert_difference('Test.count') do
       post tests_url, params: {test: {author_id: @test.author_id, category_id: @test.category_id, level: @test.level,
-                                      title: @test.title}}
+                                      title: @test.title,}}
     end
 
     assert_redirected_to test_url(Test.last)
@@ -36,7 +36,7 @@ class TestsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update test' do
     patch test_url(@test), params: {test: {author_id: @test.author_id, category_id: @test.category_id,
-                                           level: @test.level, title: @test.title}}
+                                           level: @test.level, title: @test.title,}}
     assert_redirected_to test_url(@test)
   end
 
