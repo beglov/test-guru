@@ -16,6 +16,8 @@ Style/Documentation:
   Enabled: false
 Style/AsciiComments:
   Enabled: false
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
 Style/ClassAndModuleChildren:
   Enabled: false
 Layout/LineLength:

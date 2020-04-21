@@ -1,14 +1,14 @@
 module TestPassagesHelper
   def colored_percent(test_passage)
     color = test_passage.success? ? 'green' : 'red'
-    "<span style='color: #{color}'>#{number_to_percentage(test_passage.success_percent, precision: 0)}</span>".html_safe
+    "<span style='color: #{color}'>#{number_to_percentage(test_passage.success_percent, precision: 0)}</span>".html_safe # rubocop:disable Rails/OutputSafety
   end
 
   def test_complete_message(test_passage)
     if test_passage.success?
-      'Тест пройден!'
+      t('test_passed')
     else
-      'Тест не пройден!'
+      t('test_failed')
     end
   end
 

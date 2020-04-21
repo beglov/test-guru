@@ -1,31 +1,30 @@
-<h1>Passing the <%= @test_passage.test.title %> Test</h1>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
 <div class="progress">
   <div class="progress-bar" role="progressbar" style="width: <%= progress_bar_width(@test_passage) %>%;" aria-valuenow="<%= progress_bar_width(@test_passage) %>" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
 
-<p><small>Вопрос <%= @test_passage.current_question_number %> из <%= @test_passage.test.questions.size %></small></p>
+<p><small>
+  <%= t('.progress', current: @test_passage.current_question_number, total: @test_passage.test.questions.size) %>
+</small></p>
 
-<div class="card border-primary">
+<div class="card">
   <div class="card-body">
 
-    <p><strong><%= @test_passage.current_question.body %></strong></p>
-
     <%= form_with(url: test_passage_path(@test_passage), local: true, method: :put) do |form| %>
-      <div class="form-group">
+      <p class="card-text"><strong><%= @test_passage.current_question.body %></strong></p>
 
+      <div class="form-group">
         <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
           <div class="form-check">
             <%= b.check_box(class: 'form-check-input') %>
             <%= b.label(class: 'form-check-label') %>
           </div>
         <% end %>
-
-        <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
-
-        <p><%= form.submit 'Next', class: 'btn btn-primary mt-3' %></p>
-
       </div>
+
+      <%= link_to t('.gist'), gist_test_passage_path(@test_passage), method: :post, class: 'btn btn-secondary' %>
+      <%= form.submit t('next'), class: 'btn btn-primary' %>
     <% end %>
 
   </div>

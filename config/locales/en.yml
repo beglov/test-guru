@@ -19,7 +19,11 @@ en:
       welcome_html: "Welcome, <b>%{email}</b> Guru."
       logout: "Logout"
       feedback: "Feedback"
-      control_panel: "Control Panel"
+      admin_tests: "Tests management"
+      my_badges: "My badges"
+      all_badges: "All badges"
+      admin_badges: "Badges management"
+      tests: "Tests"
 
   shared:
     errors:
@@ -68,9 +72,15 @@ en:
     result:
       header: "The %{title} Test was Completed!"
       back_tests: 'Back to tests'
+      message_html: "You answered correctly on %{percent} of the tests."
+      badges: "You got badges:"
     gist:
       success: "<a href='%{url}' target='_blank'>Gist</a> was successfully created!"
       failure: "An error occurred while saving gist"
+    show:
+      header: "Passing the %{title} Test"
+      progress: ""
+      gist: "Save on github"
 
   admin:
     nav:
@@ -122,7 +132,39 @@ en:
       index:
         question: "Question"
         user: "User"
+    badges:
+      create:
+        success: "Badge was successfully created."
+      update:
+        success: "Badge was successfully updated."
+      destroy:
+        success: "Badge was successfully destroyed."
+      index:
+        header: "Badges"
+        title: "Title"
+        image: "Image"
+        rule: "Rule"
+        new: "New Badge"
+      new:
+        header: "New Badge"
+      edit:
+        header: "Editing Badge"
+    answers:
+      destroy:
+        success: "Answer was successfully destroyed."
+      update:
+        success: "Answer was successfully updated."
+      create:
+        success: "Answer was successfully created."
 
   tests_mailer:
     completed_test:
       subject: 'You just completed the TestGuru test!'
+  show: "Show"
+  edit: "Edit"
+  destroy: "Destroy"
+  are_you_sure: "Are you sure?"
+  back: "Back"
+  next: "Next"
+  test_passed: "Test passed!"
+  test_failed: "Test failed!"

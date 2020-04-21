@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_01_125733) do
+ActiveRecord::Schema.define(version: 2020_04_16_183655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2020_04_01_125733) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "title"
+    t.string "image_path"
+    t.integer "rule"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -47,6 +56,15 @@ ActiveRecord::Schema.define(version: 2020_04_01_125733) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
+  create_table "test_passage_badges", force: :cascade do |t|
+    t.bigint "test_passage_id"
+    t.bigint "badge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_test_passage_badges_on_badge_id"
+    t.index ["test_passage_id"], name: "index_test_passage_badges_on_test_passage_id"
   end
 
   create_table "test_passages", force: :cascade do |t|
@@ -99,4 +117,6 @@ ActiveRecord::Schema.define(version: 2020_04_01_125733) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "test_passage_badges", "badges"
+  add_foreign_key "test_passage_badges", "test_passages"
 end

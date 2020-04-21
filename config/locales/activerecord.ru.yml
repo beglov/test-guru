@@ -2,6 +2,7 @@ ru:
   activerecord:
     models:
       test: 'Тест'
+      badge: 'Бэйдж'
 
     attributes:
       test:
@@ -9,6 +10,11 @@ ru:
         author: 'Автор'
         title: 'Название'
         level: 'Уровень'
+      badge:
+        title: "Название"
+        image_path: "Путь к картинке"
+        rule: "Правило"
+        value: "Значение"
 
     errors:
       messages:

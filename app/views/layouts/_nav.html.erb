@@ -7,10 +7,14 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <% if user_signed_in? %>
+        <%= link_to t('.tests'), tests_path, class: 'nav-item nav-link' %>
+        <%= link_to t('.my_badges'), my_badges_path, class: 'nav-item nav-link' %>
+        <%= link_to t('.all_badges'), badges_path, class: 'nav-item nav-link' %>
         <%= link_to t('.feedback'), feedback_message_path, class: 'nav-item nav-link' %>
 
         <% if current_user&.admin? %>
-          <%= link_to t('.control_panel'), admin_tests_path, class: 'nav-item nav-link' %>
+          <%= link_to t('.admin_tests'), admin_tests_path, class: 'nav-item nav-link' %>
+          <%= link_to t('.admin_badges'), admin_badges_path, class: 'nav-item nav-link' %>
           <%= link_to 'Gists', admin_gists_path, class: 'nav-item nav-link' %>
         <% end %>
       <% end %>

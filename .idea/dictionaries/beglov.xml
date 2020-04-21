@@ -4,6 +4,7 @@
       <w>borderless</w>
       <w>jbuilder</w>
       <w>octicon</w>
+      <w>rubocop</w>
       <w>smtp</w>
       <w>turbolinks</w>
     </words>
