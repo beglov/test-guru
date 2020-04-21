@@ -1,4 +1,5 @@
 class Badge < ApplicationRecord
+  belongs_to :category, optional: true
   has_many :test_passage_badges, dependent: :delete_all
   has_many :test_passages, through: :test_passage_badges
   has_many :tests, through: :test_passages
@@ -6,6 +7,8 @@ class Badge < ApplicationRecord
 
   validates :title, presence: true
   validates :rule, presence: true
+  validates :category_id, presence: true, if: :category_rule?
+  validates :level, presence: true, if: :level_rule?
 
   module Rule
     CATEGORY = 1
@@ -15,9 +18,15 @@ class Badge < ApplicationRecord
     ALL = [CATEGORY, FIRST_ATTEMPT, LEVEL].freeze
 
     LABEL_BY_CODE = {
-      CATEGORY => 'Выдать бэйдж после успешного прохождения всех тестов из категории Backend',
+      CATEGORY => 'Выдать бэйдж после успешного прохождения всех тестов из категории',
       FIRST_ATTEMPT => 'Выдать бэйдж после успешного прохождения теста с первой попытки',
-      LEVEL => 'Выдать бэйдж после успешного прохождения всех тестов уровня 1',
+      LEVEL => 'Выдать бэйдж после успешного прохождения всех тестов уровня',
+    }.freeze
+
+    NAME_BY_CODE = {
+      CATEGORY => :category_rule,
+      FIRST_ATTEMPT => :first_attempt_rule,
+      LEVEL => :level_rule,
     }.freeze
 
     def self.all
@@ -27,6 +36,10 @@ class Badge < ApplicationRecord
 
   def rule_label
     Rule::LABEL_BY_CODE.fetch(rule, '')
+  end
+
+  def rule_name
+    Rule::NAME_BY_CODE.fetch(rule)
   end
 
   def category_rule?
