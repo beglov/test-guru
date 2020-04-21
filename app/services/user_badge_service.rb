@@ -27,10 +27,9 @@ class UserBadgeService
   end
 
   def first_attempt_rule(badge)
-    if TestPassage.where.not(id: @test_passage.id).where(user_id: @test_passage.user_id,
-                                                         test_id: @test_passage.test_id).blank?
-      @test_passage.badges << badge
-    end
+    return unless TestPassage.where(user_id: @user.id, test_id: @test.id).count == 1
+
+    @test_passage.badges << badge
   end
 
   def level_rule(badge)
