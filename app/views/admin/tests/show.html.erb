@@ -1,26 +1,33 @@
-<p>
-  <strong><%= t('.category') %>:</strong>
-  <%= @test.category.title %>
-</p>
+<div class="card">
+  <div class="card-body">
+    <p class="card-text">
+      <strong><%= t('activerecord.attributes.test.category') %>:</strong>
+      <%= @test.category.title %>
+    </p>
 
-<p>
-  <strong><%= t('.title') %>:</strong>
-  <%= @test.title %>
-</p>
+    <p class="card-text">
+      <strong><%= t('activerecord.attributes.test.title') %>:</strong>
+      <%= @test.title %>
+    </p>
 
-<p>
-  <strong><%= t('.level') %>:</strong>
-  <%= @test.level %>
-</p>
+    <p class="card-text">
+      <strong><%= t('activerecord.attributes.test.level') %>:</strong>
+      <%= @test.level %>
+    </p>
 
-<p>
-  <strong><%= t('.author') %>:</strong>
-  <%= @test.author.email %>
-</p>
+    <p class="card-text">
+      <strong><%= t('activerecord.attributes.test.author') %>:</strong>
+      <%= @test.author.email %>
+    </p>
 
-<%= render 'admin/questions/index', questions: @test.questions, test: @test %>
+    <p class="card-text">
+      <strong><%= t('activerecord.attributes.test.minute') %>:</strong>
+      <%= @test.minute %>
+    </p>
 
-<p>
-  <%= link_to t('.edit'), edit_admin_test_path(@test) %> |
-  <%= link_to t('.back'), admin_tests_path %>
-</p>
+    <%= render 'admin/questions/index', questions: @test.questions, test: @test %>
+  </div>
+</div>
+
+<%= link_to t('edit'), edit_admin_test_path(@test) %> |
+<%= link_to t('back'), admin_tests_path %>

@@ -89,7 +89,7 @@ en:
     questions:
       index:
         header: "Questions"
-        new_question: "New Question"
+        new: "New Question"
     tests:
       form_inline:
         submit: "OK"
@@ -119,7 +119,7 @@ en:
         level: "Level"
         author: "Author"
         questions: "Questions"
-        new_test: "New Test"
+        new: "New Test"
       create:
         success: "Test was successfully created."
       update:
@@ -168,3 +168,4 @@ en:
   next: "Next"
   test_passed: "Test passed!"
   test_failed: "Test failed!"
+  delete: "Delete"

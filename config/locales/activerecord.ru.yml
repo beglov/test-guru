@@ -10,6 +10,7 @@ ru:
         author: 'Автор'
         title: 'Название'
         level: 'Уровень'
+        minute: 'Минут на прохождение'
       badge:
         title: "Название"
         image_path: "Путь к картинке"
