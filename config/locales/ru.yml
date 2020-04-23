@@ -83,6 +83,7 @@ ru:
       header: "Прохождение теста %{title}"
       progress: "Вопрос %{current} из %{total}"
       gist: "Сохранить на github"
+      time: "Оставшееся время"
 
   admin:
     nav:

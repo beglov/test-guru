@@ -81,6 +81,7 @@ en:
       header: "Passing the %{title} Test"
       progress: ""
       gist: "Save on github"
+      time: "Time left"
 
   admin:
     nav:

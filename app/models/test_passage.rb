@@ -5,6 +5,7 @@ class TestPassage < ApplicationRecord
   has_many :test_passage_badges, dependent: :delete_all
   has_many :badges, through: :test_passage_badges
 
+  before_create :before_create_set_seconds_duration
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
 
@@ -30,12 +31,17 @@ class TestPassage < ApplicationRecord
     test.questions.index(current_question) + 1
   end
 
-  def accept!(answer_ids)
+  def accept!(answer_ids, seconds)
+    self.seconds = seconds
     self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
 
   private
+
+  def before_create_set_seconds_duration
+    self.seconds = 60 * test.minute if test.minute?
+  end
 
   def before_validation_set_first_question
     self.current_question = test.questions.first
