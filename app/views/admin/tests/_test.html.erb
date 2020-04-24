@@ -1,5 +1,5 @@
 <tr>
-  <td scope="row" class="align-middle"><%= test.category.title %></td>
+  <td class="align-middle" scope="row"><%= test.category.title %></td>
   <td class="align-middle">
     <%= content_tag :span, test.title, class: 'test-title', data: {test_id: test.id} %>
     <%= render 'form_inline', test: test == @test ? @test : test %>

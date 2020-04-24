@@ -83,6 +83,7 @@ ru:
       header: "Прохождение теста %{title}"
       progress: "Вопрос %{current} из %{total}"
       gist: "Сохранить на github"
+      time: "Оставшееся время"
 
   admin:
     nav:
@@ -91,7 +92,7 @@ ru:
     questions:
       index:
         header: "Вопросы"
-        new_question: "Новый вопрос"
+        new: "Новый вопрос"
     tests:
       form_inline:
         submit: "ОК"
@@ -121,7 +122,7 @@ ru:
         level: "Уровень"
         author: "Автор"
         questions: "Вопросы"
-        new_test: "Добавить тест"
+        new: "Добавить тест"
       create:
         success: "Тест успешно создан."
       update:
@@ -170,3 +171,5 @@ ru:
   next: "Далее"
   test_passed: "Тест пройден!"
   test_failed: "Тест не пройден!"
+  delete: "Удалить"
+  timer: "Время вышло!"

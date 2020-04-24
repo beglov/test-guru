@@ -10,6 +10,7 @@ en:
         author: 'Author'
         title: 'Title'
         level: 'Level'
+        timer: 'Minutes to go'
       badge:
         title: "Title"
         image_path: "Image path"

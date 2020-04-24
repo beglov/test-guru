@@ -8,6 +8,8 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
 
+  validate :validate_timer, on: :update, if: :timer?
+
   PERCENT = 85
 
   def completed?
@@ -35,7 +37,27 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def timer?
+    test.timer.positive?
+  end
+
+  def timer_in_seconds
+    test.timer * 60
+  end
+
+  def duration_in_seconds
+    Time.zone.now - created_at
+  end
+
+  def seconds_left
+    timer_in_seconds - duration_in_seconds
+  end
+
   private
+
+  def validate_timer
+    errors.add(:timer, I18n.t('timer')) if seconds_left.negative?
+  end
 
   def before_validation_set_first_question
     self.current_question = test.questions.first
