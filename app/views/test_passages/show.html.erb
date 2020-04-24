@@ -8,10 +8,10 @@
   <%= t('.progress', current: @test_passage.current_question_number, total: @test_passage.test.questions.size) %>
 </small></p>
 
-<% if @test_passage.seconds? %>
+<% if @test_passage.seconds_left.positive? %>
   <p>
-    <%= t('.time') %>: <%= content_tag :span, @test_passage.seconds, id: 'timer',
-                                       data: {seconds: @test_passage.seconds, test_passage_id: @test_passage.id} %>
+    <%= t('.time') %>: <%= content_tag :span, @test_passage.seconds_left, id: 'timer',
+                                       data: {seconds: @test_passage.seconds_left, test_passage_id: @test_passage.id} %>
   </p>
 <% end %>
 
@@ -19,7 +19,6 @@
   <div class="card-body">
 
     <%= form_with(url: test_passage_path(@test_passage), local: true, method: :put) do |form| %>
-      <%= hidden_field_tag :seconds, @test_passage.seconds %>
       <p class="card-text"><strong><%= @test_passage.current_question.body %></strong></p>
 
       <div class="form-group">

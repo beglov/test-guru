@@ -8,7 +8,7 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    @test_passage.accept!(params[:answer_ids], params[:seconds])
+    @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
       UserBadgeService.new(@test_passage)

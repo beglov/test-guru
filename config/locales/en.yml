@@ -170,3 +170,4 @@ en:
   test_passed: "Test passed!"
   test_failed: "Test failed!"
   delete: "Delete"
+  timer: "Time is over!"

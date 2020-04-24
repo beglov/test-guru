@@ -2,20 +2,19 @@ document.addEventListener('turbolinks:load', () => {
     let timerSpan = document.getElementById('timer');
 
     if (timerSpan) {
-        let secondsLeft = timerSpan.dataset.seconds;
-        timerSpan.textContent = secondsToTimeString(secondsLeft);
-        startTimer(secondsLeft, timerSpan);
+        startTimer(timerSpan);
     }
 });
 
-function startTimer(seconds, display) {
-    let testPassageId = display.dataset.testPassageId;
-    let secondsInput = document.getElementById('seconds');
+function startTimer(timer) {
+    let seconds = timer.dataset.seconds;
+    let testPassageId = timer.dataset.testPassageId;
+
+    timer.textContent = secondsToTimeString(seconds);
 
     setInterval(() => {
         seconds -= 1;
-        secondsInput.value = seconds
-        display.textContent = secondsToTimeString(seconds);
+        timer.textContent = secondsToTimeString(seconds);
         if (seconds < 0) {
             window.location.href = `/test_passages/${testPassageId}/result`;
         }

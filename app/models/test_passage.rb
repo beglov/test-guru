@@ -5,9 +5,10 @@ class TestPassage < ApplicationRecord
   has_many :test_passage_badges, dependent: :delete_all
   has_many :badges, through: :test_passage_badges
 
-  before_create :before_create_set_seconds_duration
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
+
+  validate :validate_timer, on: :update, if: :timer?
 
   PERCENT = 85
 
@@ -31,16 +32,31 @@ class TestPassage < ApplicationRecord
     test.questions.index(current_question) + 1
   end
 
-  def accept!(answer_ids, seconds)
-    self.seconds = seconds
+  def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
 
+  def timer?
+    test.timer.positive?
+  end
+
+  def timer_in_seconds
+    test.timer * 60
+  end
+
+  def duration_in_seconds
+    Time.zone.now - created_at
+  end
+
+  def seconds_left
+    timer_in_seconds - duration_in_seconds
+  end
+
   private
 
-  def before_create_set_seconds_duration
-    self.seconds = 60 * test.minute if test.minute?
+  def validate_timer
+    errors.add(:timer, I18n.t('timer')) if seconds_left.negative?
   end
 
   def before_validation_set_first_question
